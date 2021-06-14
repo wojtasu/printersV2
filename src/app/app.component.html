@@ -1,0 +1,95 @@
+<html>
+<style>
+  table, td, th {
+    border: 1px solid black;
+  }
+  table {
+    border-collapse: collapse;
+    width: 90%;
+  }
+  th {
+    height: 50px;
+  }
+  </style>
+   <!--<script> 
+ $(document).ready(function(){
+  
+  var mc = {
+    '0-19'     : 'red',
+    '20-30'    : 'orange',
+    '31-100'   : 'green'
+  };
+  
+function between(x, min, max) {
+  return x >= min && x <= max;
+}
+  
+  
+  var dc;
+  var first; 
+  var second;
+  var th;
+  
+  $('p').each(function(index){
+    
+    th = $(this);
+    
+    dc = parseInt($(this).attr('data-color'),10);
+    
+    
+      $.each(mc, function(name, value){
+        
+        
+        first = parseInt(name.split('-')[0],10);
+        second = parseInt(name.split('-')[1],10);
+        
+        console.log(between(dc, first, second));
+        
+        if( between(dc, first, second) ){
+          th.addClass(value);
+        }
+    
+    
+      });
+    
+  });
+});
+        </script>-->
+        <script type="text/javascript">
+         var init =  function()
+          {
+            var toner = document.getElementById('toner');
+      
+            toner.style.backgroundColor = "red";
+          }
+        </script>
+        <script src="https://code.jquery.com/jquery-1.7.2.js"></script>
+  <body >
+  <h2>Drukarki</h2>
+<div>
+  <table mat-table align="center" data-ng-init="init()">
+    <tr>
+      <th>Name</th>
+      <th>Model</th>
+      <!--<th>IP</th>-->
+      <th>Cyan</th>
+      <th>Magenta</th>
+      <th>Yellow</th>
+      <th>Black</th>
+    </tr>
+    <tr *ngFor="let com of lstcomments" align="center">
+      <th>{{com.name}}</th>
+      
+      <td>{{com.model}}</td>
+     <!-- <td>{{com.IP}}</td>-->
+     
+      <td id='toner'><div id='toner'>{{com.C}}</div> </td>
+      <td id="toner">{{com.M}} %</td>
+      <td id="toner">{{com.Y}} %</td>
+      <td id="toner">{{com.K}} %</td>
+     
+    </tr>
+  </table>
+  </div>
+  </body>
+  </html>
